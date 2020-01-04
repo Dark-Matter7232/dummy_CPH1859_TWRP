@@ -1,7 +1,7 @@
 #
-# Copyright 2019 The Android Open Source Project
-# Copyright (C) 2019 The LineageOS Project
-# Copyright (C) 2013-2019 OmniROM
+# Copyright 2020 The Android Open Source Project
+# Copyright (C) 2020 The LineageOS Project
+# Copyright (C) 2013-2020 OmniROM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -63,10 +63,7 @@ BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=user androidboot.sel
 
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/zImage
 
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x14f88000 --tags_offset 0x13f88000 --header_version 1
-
-ENABLE_CPUSETS := true
-ENABLE_SCHEDBOOST := true
+#BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x14f88000 --tags_offset 0x13f88000 --header_version 1
 
 # Platform
 
@@ -97,7 +94,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 # Recovery
 
-# Previous colors: RGBA_8888, ABGR_8888
+# Other colors: RGBA_8888, ABGR_8888
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/root/etc/twrp.fstab
 BOARD_HAS_NO_SELECT_BUTTON := true
@@ -148,6 +145,8 @@ TW_INCLUDE_NTFS_3G := true
 TARGET_USES_MKE2FS := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_SCREEN_BLANK_ON_BOOT := true
+ENABLE_CPUSETS := true
+ENABLE_SCHEDBOOST := true
 
 # OS
 

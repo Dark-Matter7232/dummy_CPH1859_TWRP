@@ -50,6 +50,9 @@ on fs
     symlink /sbin/mcRegistry /vendor/app/mcRegistry
     symlink /sbin/vendor/lib64/hw /vendor/lib64/hw
 
+    write /sys/devices/platform/odm/odm:oppo_charger/power_supply/usb/otg_switch 1
+    export ANDROID_ROOT /system_root
+
 on init
     mkdir /vendor/lib64 0700 root root
     mkdir /vendor/lib64/hw 0700 root root
@@ -83,10 +86,6 @@ service keymaster-3-0 /sbin/android.hardware.keymaster@3.0-service
     group root
     disabled
     seclabel u:r:recovery:s0
-
-on boot
-    write /sys/devices/platform/odm/odm:oppo_charger/power_supply/usb/otg_switch 1
-    export ANDROID_ROOT /system_root
 
 on property:crypto.ready=0
     stop keymaster-3-0
