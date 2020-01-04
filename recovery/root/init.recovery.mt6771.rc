@@ -22,8 +22,6 @@ on init
     mkdir /vendor/lib64 0700 root root
     mkdir /vendor/lib64/hw 0700 root root
     symlink /sbin/mcRegistry /vendor/app/mcRegistry
-    symlink /sbin/etc/selinux /vendor/etc/selinux
-    symlink /sbin/vendor/etc/vintf /vendor/etc/vintf
     symlink /sbin/vendor/lib64/hw /vendor/lib64/hw
 
 on fs
@@ -87,11 +85,6 @@ on fs
     #Haitao.Zhou@Prd.BaseDrv, 2015/04/13, Add for merging T-base end
 
 on late-init
-    # Load properties from /system/ + /factory after fs mount. Place
-    # this in another action so that the load will be scheduled after the prior
-    # issued fs triggers have completed.
-    trigger load_system_props_action
-
 #Zequan.Wang@PSW.AD.Recovery.1122242, 2017/12/14, Add for reload persist property when decrypted and mount /data
 on property:recovery.reload.persist=trigger_reload_persist
     load_persist_props
