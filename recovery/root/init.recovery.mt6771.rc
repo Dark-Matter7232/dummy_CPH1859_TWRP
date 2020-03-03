@@ -45,19 +45,17 @@ on fs
     mkdir /config/usb_gadget/g1/functions/ffs.adb
     setprop sys.usb.ffs.aio_compat 1
 
-    mkdir /vendor/lib64 0700 root root
-    mkdir /vendor/lib64/hw 0700 root root
-    symlink /sbin/mcRegistry /vendor/app/mcRegistry
-    symlink /sbin/vendor/lib64/hw /vendor/lib64/hw
-
     write /sys/devices/platform/odm/odm:oppo_charger/power_supply/usb/otg_switch 1
     export ANDROID_ROOT /system_root
 
 on init
+
     mkdir /vendor/lib64 0700 root root
     mkdir /vendor/lib64/hw 0700 root root
     symlink /vendor/manifest.xml /system_root/system/manifest.xml
-    symlink /sbin/busybox /system/bin/sh
+    symlink /sbin/keystore.mt6771.so /vendor/lib64/hw/keystore.mt6771.so
+    symlink /sbin/gatekeeper.mt6771.so /vendor/lib64/hw/gatekeeper.mt6771.so
+    symlink /sbin/mcRegistry /vendor/app/mcRegistry
 
     start hwservicemanager
     setprop crypto.ready 1
