@@ -20,9 +20,10 @@
 
 LOCAL_PATH := device/oppo/CPH1859
 
-# system-as-root (SAR)
+# system-as-root (SAR), OTA Assert
 
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+TARGET_OTA_ASSERT_DEVICE := CPH1859,CPH1861
 
 # Architecture:
 # Note: ro.product.cpu.abi and ro.product.cpu.abi2 are obsolete,
@@ -62,6 +63,10 @@ BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=user androidboot.sel
 
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/Image.gz-dtb
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+BOARD_BOOTIMG_HEADER_VERSION := 1
 
 #BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x14f88000 --tags_offset 0x13f88000 --header_version 1
 
