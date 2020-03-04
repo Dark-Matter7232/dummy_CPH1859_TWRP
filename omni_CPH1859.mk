@@ -33,3 +33,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=CPH1859 \
     BUILD_PRODUCT=CPH1859 \
     TARGET_DEVICE=CPH1859
+    
+# Display Note: Place these flags here only. Getting error (TW_THEME_WARNING_MSG) if placed in BoardConfig.mk
+
+TARGET_SCREEN_HEIGHT := 2160
+TARGET_SCREEN_WIDTH := 1080
+TW_THEME := portrait_hdpi

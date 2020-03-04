@@ -20,11 +20,11 @@
 
 LOCAL_PATH := device/oppo/CPH1859
 
-# system-as-root (SAR) and OTA Assert
+# system-as-root (SAR)
 
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
-# Architecture: 
+# Architecture:
 # Note: ro.product.cpu.abi and ro.product.cpu.abi2 are obsolete,
 # use ro.product.cpu.abilist instead.
 
@@ -60,7 +60,8 @@ BOARD_TAGS_OFFSET := 0x13f88000
 
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=user androidboot.selinux=permissive
 
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/zImage
+TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/Image.gz-dtb
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 
 #BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x14f88000 --tags_offset 0x13f88000 --header_version 1
 
@@ -93,7 +94,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 # Recovery
 
-# Other colors: RGBA_8888, ABGR_8888, BGRA_8888
+# Colors: RGBA_8888, ABGR_8888, BGRA_8888
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery.fstab
 BOARD_HAS_NO_SELECT_BUTTON := true
@@ -103,11 +104,6 @@ BOARD_USE_FRAMEBUFFER_ALPHA_CHANNEL := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TARGET_DISABLE_TRIPLE_BUFFERING := false
 RECOVERY_SDCARD_ON_DATA := true
-
-# Display
-
-TARGET_SCREEN_HEIGHT := 2160
-TARGET_SCREEN_WIDTH := 1080
 
 # system properties
 
@@ -121,13 +117,11 @@ TARGET_COPY_OUT_VENDOR := vendor
 # TWRP Related
 
 TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_THEME := portrait_hdpi
 TW_DEVICE_VERSION := $(shell date -u +" %F")
 TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 1000
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
-TW_INCLUDE_FB2PNG := true
 TW_USE_TOOLBOX := true
 TW_NO_SCREEN_BLANK := true
 TW_NO_BATT_PERCENT := false
@@ -145,6 +139,7 @@ TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_SCREEN_BLANK_ON_BOOT := false
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
+TW_INCLUDE_FB2PNG := true
 
 # OS
 
