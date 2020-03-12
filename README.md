@@ -12,6 +12,7 @@ The Realme 1 (codenamed _"CPH1859"_) is a mid-range smartphone from Realme, anno
 3. Flash Stock ROM
 4. Flash GSI or Custom ROMs
 5. Screenshots now renders correct color
+6. OTG Works
 
 **Not working**:
 

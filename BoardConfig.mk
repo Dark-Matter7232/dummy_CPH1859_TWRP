@@ -147,11 +147,16 @@ TW_OZIP_DECRYPT_KEY := "172B3E14E46F3CE13E2B5121CBDC4321"
 TW_INCLUDE_NTFS_3G := true
 TARGET_USES_MKE2FS := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
-TW_SCREEN_BLANK_ON_BOOT := false
+TW_SCREEN_BLANK_ON_BOOT := true
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
 TW_INCLUDE_FB2PNG := true
+TW_INCLUDE_JPEG := true
 TW_INCLUDE_CRYPTO_FBE := true
+
+# Time Zone data
+PRODUCT_COPY_FILES += \
+bionic/libc/zoneinfo/tzdata:recovery/root/system/usr/share/zoneinfo/tzdata
 
 # OS
 

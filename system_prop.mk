@@ -24,14 +24,5 @@ ro.product.device=CPH1859
 ro.build.product=CPH1859
 ro.secure=0
 ro.adb.secure=0
-sys.usb.configfs=1
 ro.treble.enabled=true
-persist.sys.usb.config=mtp,adb
-persist.service.adb.enable=1
-persist.service.debuggable=1
-sys.usb.controller=musb-hdrc
-ro.sys.usb.storage.type=mtp
-sys.usb.ffs.aio_compat=1
-sys.usb.ffs.ready=1
-sys.usb.state=mtp,adb
 
