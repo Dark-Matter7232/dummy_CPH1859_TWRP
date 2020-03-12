@@ -47,6 +47,7 @@ on fs
 
     write /sys/devices/platform/odm/odm:oppo_charger/power_supply/usb/otg_switch 1
     export ANDROID_ROOT /system_root
+    install_keyring
 
 on init
 
@@ -58,11 +59,12 @@ on init
     symlink /sbin/mcRegistry /vendor/app/mcRegistry
 
     start hwservicemanager
+    start servicemanager
     setprop crypto.ready 1
 
 service hwservicemanager /sbin/hwservicemanager
     user root
-    group root
+    group root readproc
     disabled
     onrestart setprop hwservicemanager.ready false
     seclabel u:r:recovery:s0
@@ -70,6 +72,19 @@ service hwservicemanager /sbin/hwservicemanager
 service servicemanager /sbin/servicemanager
     user root
     group root readproc
+    disabled
+    seclabel u:r:recovery:s0
+
+service keystore_auth /sbin/keystore_auth
+    oneshot
+    user system
+    group root
+    disabled
+    seclabel u:r:recovery:s0    
+
+service keystore /sbin/keystore /tmp/misc/keystore
+    user root
+    group root drmrpc readproc
     disabled
     seclabel u:r:recovery:s0
 
@@ -81,7 +96,7 @@ service gatekeeper-1-0 /sbin/android.hardware.gatekeeper@1.0-service
 
 service keymaster-3-0 /sbin/android.hardware.keymaster@3.0-service
     user root
-    group root
+    group root drmrpc
     disabled
     seclabel u:r:recovery:s0
 
@@ -89,6 +104,33 @@ on property:crypto.ready=0
     stop keymaster-3-0
     stop gatekeeper-1-0
     stop servicemanager
+    
+on property:ro.crypto.state=unsupported
+    stop hidl_memory
+    stop capi-2-0
+    stop teei_daemon
+    stop keymaster-3-0
+    stop gatekeeper-1-0
+    stop servicemanager
+    stop hwservicemanager
+
+on property:ro.crypto.state=unencrypted
+    stop hidl_memory
+    stop capi-2-0
+    stop teei_daemon
+    stop keymaster-3-0
+    stop gatekeeper-1-0
+    stop servicemanager
+    stop hwservicemanager
+
+on property:twrp.decrypt.done=true
+    stop hidl_memory
+    stop capi-2-0
+    stop teei_daemon
+    stop keymaster-3-0
+    stop gatekeeper-1-0
+    stop servicemanager
+    stop hwservicemanager
 
 on property:vendor.sys.listeners.registered=true
     start keymaster-3-0
