@@ -18,7 +18,7 @@
 
 # Device path
 
-LOCAL_PATH := device/oppo/CPH1859
+LOCAL_PATH := device/oppo/CPH1861
 
 # system-as-root (SAR), OTA Assert
 
@@ -150,13 +150,7 @@ TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_SCREEN_BLANK_ON_BOOT := true
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
-TW_INCLUDE_FB2PNG := true
-TW_INCLUDE_JPEG := true
 TW_INCLUDE_CRYPTO_FBE := true
-
-# Time Zone data
-PRODUCT_COPY_FILES += \
-bionic/libc/zoneinfo/tzdata:recovery/root/system/usr/share/zoneinfo/tzdata
 
 # OS
 
