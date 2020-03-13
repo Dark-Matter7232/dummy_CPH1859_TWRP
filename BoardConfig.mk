@@ -18,12 +18,12 @@
 
 # Device path
 
-LOCAL_PATH := device/oppo/CPH1861
+LOCAL_PATH := device/oppo/RMX1831
 
 # system-as-root (SAR), OTA Assert
 
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-TARGET_OTA_ASSERT_DEVICE := CPH1859,CPH1861
+TARGET_OTA_ASSERT_DEVICE := RMX1831
 
 # Architecture:
 # Note: ro.product.cpu.abi and ro.product.cpu.abi2 are obsolete,

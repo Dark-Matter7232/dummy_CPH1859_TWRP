@@ -6,24 +6,8 @@ A. Instructions (after repo init):
 
 1. cd <source_dir>
 
-2. cd .repo/
-
-3. mkdir local_manifests;
-
-4. cd local_manifests;
-
-5. nano roomservice.xml
 
 Now a file has been created and you have include various trees for building. roomservice.xml will be like this.
-
-
-<?xml version="1.0" encoding="UTF-8"?>
-<manifest>
-
-  <project name="buddi56/android_device_oppo_CPH1859" path="device/oppo/CHP1859" remote="github" revision="master" />
-  ###<project name="buddi56/android_kernel_oppo_CPH1859" path="kernel/oppo/CPH1859" remote="github" revision="master" />###
-
-</manifest>
 
 
 Kernel source is available but it has lot of issues. Used prebuilt kernel. Note: Using prebuilt kernels in building is deprecated.
@@ -47,7 +31,7 @@ To edit vendorsetup.sh file in the downloaded TWRP source. Head to the below loc
 
 Now add below line at the end.
 
-	add_lunch_combo omni_CPH1861-eng
+	add_lunch_combo omni_RMX1831-eng
 
 3. Save file and exit.
 
