@@ -5,9 +5,7 @@ After repo initialization and before repo sync you have to add a file for syncin
 A. Instructions (after repo init):
 
 1. cd <source_dir>
-
-
-Now a file has been created and you have include various trees for building. roomservice.xml will be like this.
+2.clone this repo https://github.com/mauronofrio/android_bootable_recovery/commits/android-9.0
 
 
 Kernel source is available but it has lot of issues. Used prebuilt kernel. Note: Using prebuilt kernels in building is deprecated.
