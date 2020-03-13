@@ -131,7 +131,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_DEVICE_VERSION := $(shell date -u +" %F")
 TW_MAX_BRIGHTNESS := 2047
-TW_DEFAULT_BRIGHTNESS := 1000
+TW_DEFAULT_BRIGHTNESS := 560
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 TW_USE_TOOLBOX := true
@@ -150,18 +150,16 @@ TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_SCREEN_BLANK_ON_BOOT := true
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
-TW_INCLUDE_CRYPTO_FBE := true
 
 # OS
 
 PLATFORM_SECURITY_PATCH := 2020-02-05
 BOARD_OS_VERSION := 9.0.0
 TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_FBE := true
-TW_CRYPTO_FS_TYPE := "ext4"
-TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/bootdevice/by-name/userdata"
-TW_CRYPTO_MNT_POINT := "/data"
-TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,noatime,discard,noauto_da_alloc,data=ordered"
+#TW_CRYPTO_FS_TYPE := "ext4"
+#TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/bootdevice/by-name/userdata"
+#TW_CRYPTO_MNT_POINT := "/data"
+#TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,noatime,discard,noauto_da_alloc,data=ordered"
 
 # Debug
 

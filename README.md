@@ -7,7 +7,7 @@ The Realme 1 (codenamed _"CPH1861"_) is a mid-range smartphone from Realme, anno
 
 **Working**:
 
-1. MTP (In Linux)
+1. MTP
 2. Backup and Restore
 3. Flash Stock ROM
 4. Flash GSI or Custom ROMs
@@ -16,8 +16,7 @@ The Realme 1 (codenamed _"CPH1861"_) is a mid-range smartphone from Realme, anno
 
 **Not working**:
 
-1. MTP (In Windows)
-2. Decryption
+1. Decryption
 
 ## Downloads
 
